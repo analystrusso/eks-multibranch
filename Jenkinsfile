@@ -21,8 +21,12 @@ pipeline {
         }
         
         stage("build jar") {
+            when {
+                expression {
+                    BRANCH_NAME == "feature-1"
+                }
+            }
             steps {
-                when { branch 'feature-1' }
                 script {
                     gv.buildJar()
 
