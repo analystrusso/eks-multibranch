@@ -22,6 +22,7 @@ pipeline {
         
         stage("build jar") {
             steps {
+                when { branch 'feature-1' }
                 script {
                     gv.buildJar()
 
