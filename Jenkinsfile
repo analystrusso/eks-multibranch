@@ -31,7 +31,9 @@ pipeline {
 
         stage("build image") {
             when {
-                branch "feature-1"
+                expression {
+                    BRANCH_NAME == "feature-1"
+                }
                 }
             steps {
                 script {
