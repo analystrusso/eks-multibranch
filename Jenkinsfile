@@ -33,7 +33,6 @@ pipeline {
             when {
                 branch "feature-1"
                 }
-            }
             steps {
                 script {
                     gv.buildImage()
@@ -49,3 +48,4 @@ pipeline {
             }
         }               
     }
+} 
