@@ -23,11 +23,6 @@ pipeline {
         }
 
         stage("build image") {
-            when {
-                expression {
-                    env.BRANCH_NAME == "feature-1"
-                }
-            }
             steps {
                 script {
                     gv.buildImage()

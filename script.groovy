@@ -4,7 +4,6 @@ def buildJar() {
 }
 
 def buildImage() {
-    echo "executing pipeline for branch $BRANCH_NAME"
     echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh 'docker build -t analystrusso/twn-bootcamp-repo:jma-2.0 .'
