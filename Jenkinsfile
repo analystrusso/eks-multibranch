@@ -1,10 +1,10 @@
-def gv
-
 pipeline {   
     agent any
+
     tools {
         maven 'maven-3.9'
-        }  
+    }
+
     stages {
         stage("debug") {
             when {
@@ -30,10 +30,17 @@ pipeline {
             steps {
                 script {
                     echo "building the docker image..."
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                    sh 'docker build -t analystrusso/twn-bootcamp-repo:jma-2.0 .'
-                    sh 'echo $PASS | docker login -u $USER --password-stdin'
-                    sh 'docker push analystrusso/twn-bootcamp-repo:jma-2.0'
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'docker-hub-repo',
+                            passwordVariable: 'PASS',
+                            usernameVariable: 'USER'
+                        )
+                    ]) {
+                        sh 'docker build -t analystrusso/twn-bootcamp-repo:jma-2.0 .'
+                        sh 'echo $PASS | docker login -u $USER --password-stdin'
+                        sh 'docker push analystrusso/twn-bootcamp-repo:jma-2.0'
+                    }
                 }
             }
         }
@@ -46,5 +53,4 @@ pipeline {
             }
         }               
     }
-}
 }
