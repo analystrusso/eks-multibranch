@@ -30,7 +30,6 @@ pipeline {
         }
 
         stage("build image") {
-            when { branch 'feature-1' }
             steps {
                 script {
                     gv.buildImage()
