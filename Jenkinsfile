@@ -31,8 +31,7 @@ pipeline {
 
         stage("build image") {
             when {
-                expression {
-                    env.BRANCH_NAME == "feature-1"
+                branch "feature-1"
                 }
             }
             steps {
