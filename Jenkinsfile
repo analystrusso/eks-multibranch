@@ -30,11 +30,7 @@ pipeline {
         }
 
         stage("build image") {
-            when {
-                expression {
-                    BRANCH_NAME == "feature-1"
-                }
-                }
+            when { branch 'feature-1' }
             steps {
                 script {
                     gv.buildImage()
