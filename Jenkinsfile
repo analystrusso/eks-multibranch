@@ -7,11 +7,6 @@ pipeline {
     }
     stages {
         stage("init") {
-            when {
-                expression {
-                    BRANCH_NAME == "feature-1"
-                }
-            }
             steps {
                 script {
                     gv = load "script.groovy"
@@ -20,6 +15,11 @@ pipeline {
         }
 
         stage("debug") {
+            when {
+                expression {
+                    BRANCH_NAME == "feature-1"
+                }
+            }
             steps {
                 echo "BRANCH_NAME is: [${env.BRANCH_NAME}]"
             }
