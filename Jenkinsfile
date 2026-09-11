@@ -9,7 +9,7 @@ pipeline {
         stage("build and deploy") {
             when {
                 expression {
-                    env.BRANCH_NAME == 'feature-1'
+                    env.BRANCH_NAME == 'main'
                 }
             }
 
