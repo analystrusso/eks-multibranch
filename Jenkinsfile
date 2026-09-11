@@ -7,6 +7,11 @@ pipeline {
     }
     stages {
         stage("init") {
+            when {
+                expression {
+                    BRANCH_NAME == "feature-1"
+                }
+            }
             steps {
                 script {
                     gv = load "script.groovy"
@@ -21,11 +26,6 @@ pipeline {
         }
         
         stage("build jar") {
-            when {
-                expression {
-                    BRANCH_NAME == "feature-1"
-                }
-            }
             steps {
                 script {
                     gv.buildJar()
