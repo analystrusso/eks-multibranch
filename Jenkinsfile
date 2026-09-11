@@ -13,6 +13,13 @@ pipeline {
                 }
             }
         }
+
+        stage("debug") {
+            steps {
+                echo "BRANCH_NAME is: [${env.BRANCH_NAME}]"
+            }
+        }
+
         stage("build jar") {
             steps {
                 script {
