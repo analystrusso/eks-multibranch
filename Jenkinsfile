@@ -9,7 +9,7 @@ pipeline {
         stage("build and deploy") {
             when {
                 expression {
-                    env.BRANCH_NAME == 'main'
+                    env.BRANCH_NAME == 'deploy-on-k8s'
                 }
             }
 
