@@ -17,7 +17,7 @@ pipeline {
         stage("debug") {
             when {
                 expression {
-                    BRANCH_NAME == "feature-1"
+                    env.BRANCH_NAME == "feature-1"
                 }
             }
             steps {
